@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ymirna <ymirna@student.42.fr>              +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 19:39:03 by ymirna            #+#    #+#             */
-/*   Updated: 2022/09/20 22:06:26 by ymirna           ###   ########.fr       */
+/*   Updated: 2022/09/25 20:49:48 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,13 @@ int	main(int ac, char	**av)
 	}
 	ret = check_scene(&info, av[1]);
 	if (ret)
+	{
+		if (ret = 4)
+			printf("Invalid info\n");
+		if (ret = 5)
+			printf("Malloc system call error\n");
 		return (ret);
+	}
+	//main_loop(info);
 	return (0);
 }

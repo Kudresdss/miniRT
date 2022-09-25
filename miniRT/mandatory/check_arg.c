@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_arg.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ymirna <ymirna@student.42.fr>              +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 19:56:22 by ymirna            #+#    #+#             */
-/*   Updated: 2022/09/20 23:42:31 by ymirna           ###   ########.fr       */
+/*   Updated: 2022/09/26 01:01:22 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ static int	check_info(ray_t	*info, char	*str)
 	else if (str[0] == "c" && str[1] == "y" && !info->info_error)
 		fill_cylinder(info, str);
 	else
-		return (5);
+		return (4);
 	return (info->info_error);
 }
 
@@ -49,6 +49,8 @@ static int	read_info(ray_t	*info, int fd)
 			break ;
 		ret = check_info(info, str);
 		free(str);
+		if (info->str_arr)
+			free_str_arr(info->str_arr);
 		if (ret)
 		{
 			free_info(info);
@@ -57,6 +59,16 @@ static int	read_info(ray_t	*info, int fd)
 		info->info_error = 0;
 	}
 	return (0);
+}
+
+static void	null_init(ray_t	*info)
+{
+	info->ambient = NULL;
+	info->camera = NULL;
+	info->light = NULL;
+	info->spheres = NULL;
+	info->planes = NULL;
+	info->cylinders = NULL;
 }
 
 int	check_scene(ray_t	*info, char	*scene)
@@ -75,6 +87,9 @@ int	check_scene(ray_t	*info, char	*scene)
 		printf("Failed to open file\n");
 		return (3);
 	}
+	null_init(info);
 	ret = read_info(info, fd);
+	if (info->ambient == NULL || info->camera == NULL)
+		return (4);
 	return (ret);
 }
