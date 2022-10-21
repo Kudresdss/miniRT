@@ -1,16 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parcer_basic_1.c                                   :+:      :+:    :+:   */
+/*   parcer_basic_ft.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ymirna <ymirna@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ymirna <ymirna@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 15:03:56 by ymirna            #+#    #+#             */
-/*   Updated: 2022/10/10 19:33:05 by ymirna           ###   ########.fr       */
+/*   Updated: 2022/10/21 03:53:53 by ymirna           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "miniRT.h"
+#include "minirt.h"
+
+int	char_value(char	*str, char c, int x, int less)
+{
+	int i;
+	int y;
+	
+	i = 0;
+	y = 0;
+	while (str[i])
+	{
+		if (str[i] == c)
+			y++;
+		i++;
+	}
+	if (x == y && less == 0)
+		return (0);
+	else if (x >= y && less == 1)
+		return (0);
+	return (1);
+}
+
+int	is_char(char a, char b)
+{
+	if (a != b)
+		return (1);
+	return (0);
+}
 
 int	if_char(t_minirt	*info, char	a, char b)
 {
@@ -22,15 +49,15 @@ int	if_char(t_minirt	*info, char	a, char b)
 	return (0);
 }
 
-int	if_str_arr(t_minirt	*info, char	**arr)
+int	if_str_arr(t_minirt	*info, char	**arr, int x)
 {
-	if (!arr)
+	if (!arr || !arr[0])
 	{
 		info->info_error = 5;
-		return (1);
+		return (5);
 	}
 	info->str_arr = arr;
-	return (0);
+	return (check_info_x(arr, x));
 }
 
 int	ft_strn_ncmp(char	*s1, char	*s2, size_t start, size_t n)

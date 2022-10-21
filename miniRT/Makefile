@@ -3,19 +3,20 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ymirna <ymirna@student.42.fr>              +#+  +:+       +#+         #
+#    By: ymirna <ymirna@student.21-school.ru>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/29 17:19:04 by cbridget          #+#    #+#              #
-#    Updated: 2022/10/10 12:29:38 by ymirna           ###   ########.fr        #
+#    Updated: 2022/10/20 03:58:11 by ymirna           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = miniRT
 
-HEAD = headers/miniRT.h
+HEAD = headers/minirt.h
 
-SRC = main.c utilities.c hooks.c init.c miniRT.c rayTracer.c vectors.c intersectRaySphere.c \
-computeLighting.c intersectRayPlane.c
+SRC = main.c check_args.c check_params.c fill_info_1.c fill_info_2.c fill_valid.c \
+		get_next_line.c get_next_line_utils.c parcer_basic_ft.c split.c \
+		free.c init.c init_info.c
 
 OBJ = $(addprefix objects/,$(SRC:.c=.o))
 

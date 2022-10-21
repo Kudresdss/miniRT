@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ymirna <ymirna@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ymirna <ymirna@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/02 08:21:54 by ymirna            #+#    #+#             */
-/*   Updated: 2022/10/10 15:20:23 by ymirna           ###   ########.fr       */
+/*   Updated: 2022/10/21 07:11:43 by ymirna           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
+#include "minirt.h"
 
 int	ft_check(char	*buf, t_gnl	*st)
 {

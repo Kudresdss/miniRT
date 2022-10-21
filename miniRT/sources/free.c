@@ -1,22 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init.c                                             :+:      :+:    :+:   */
+/*   free.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ymirna <ymirna@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/02 14:37:06 by cbridget          #+#    #+#             */
-/*   Updated: 2022/10/19 03:32:58 by ymirna           ###   ########.fr       */
+/*   Created: 2022/10/12 21:24:27 by ymirna            #+#    #+#             */
+/*   Updated: 2022/10/19 00:38:42 by ymirna           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
-void	init_rt(t_minirt *data)
+void	free_str_arr(char	**arr)
 {
-	data->mlx.mlx = mlx_init();
-	data->mlx.mlx_win = mlx_new_window(data->mlx.mlx, WIDTH, HIGHT, "miniRT");
-	data->mlx.img = mlx_new_image(data->mlx.mlx, WIDTH, HIGHT);
-	data->mlx.addr = mlx_get_data_addr(data->mlx.img, \
-	&data->mlx.bits_per_pixel, &data->mlx.line_length, &data->mlx.endian);
+	int	i;
+
+	i = 0;
+	while (arr[i])
+	{
+		free(arr[i]);
+		i++;
+	}
+	free(arr);
 }
+
+// void	free_info(t_minirt	*info)
+// {
+// 	// free(info->light_p);
+// 	// free(info->scene.planes);
+// 	// free(info->scene.spheres);
+// }

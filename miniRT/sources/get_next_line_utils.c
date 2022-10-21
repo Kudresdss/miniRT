@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ymirna <ymirna@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ymirna <ymirna@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/02 08:26:20 by ymirna            #+#    #+#             */
-/*   Updated: 2022/10/10 19:28:38 by ymirna           ###   ########.fr       */
+/*   Updated: 2022/10/21 07:12:00 by ymirna           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
+#include "minirt.h"
 
 char	*ft_sub(char *s, unsigned int start, size_t	len, int	x)
 {

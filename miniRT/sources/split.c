@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "miniRT.h"
+#include "minirt.h"
 
 static size_t	ft_words(char const	*s, char	c)
 {
@@ -79,9 +79,7 @@ char	**ft_split(char const	*s, char	c)
 {
 	char	**sttr;
 	size_t	words;
-	size_t	i;
 
-	i = 0;
 	if (!s)
 		return (NULL);
 	words = ft_words(s, c);

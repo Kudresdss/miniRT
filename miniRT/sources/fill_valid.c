@@ -10,7 +10,35 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../headers/mini_rt.h"
+#include "minirt.h"
+
+float	ft_atof(char	*str)
+{
+	float	val;
+	float	power;
+	int		sign;
+	int		i;
+
+	sign = 1;
+	i = 0;
+	if (str[i] == '-')
+		sign = -1;
+	val = 0.0;
+	while (ft_isdigit(str[i]))
+	{
+		val = 10.0 * val + (str[i] - '0');
+		i++;
+	}
+	if (str[i] == '.')
+		i++;
+	power = 1.0;
+	while (ft_isdigit(str[i]))
+	{
+		val = 10.0 * val + (str[i] - '0');
+		power = 10 * power;
+	}
+	return (sign * val / power);
+}
 
 int	coord_valid(char	*str)
 {
