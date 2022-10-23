@@ -6,7 +6,7 @@
 /*   By: ymirna <ymirna@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 05:21:36 by ymirna            #+#    #+#             */
-/*   Updated: 2022/10/19 06:02:05 by ymirna           ###   ########.fr       */
+/*   Updated: 2022/10/23 05:44:50 by ymirna           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,3 +91,16 @@ int	init_cylinder(t_minirt	*info, t_list	**list)
 		*list = (*list)->next;
 	return (0);
 }
+
+
+
+
+
+unsigned int	create_trgb(unsigned char r, unsigned char g, unsigned char b)
+{
+	unsigned char	t;
+
+	t = 0;
+	return (*(unsigned int *)(unsigned char [4]){b, g, r, t});
+}
+

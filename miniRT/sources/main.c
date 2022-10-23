@@ -6,7 +6,7 @@
 /*   By: ymirna <ymirna@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/29 17:29:40 by cbridget          #+#    #+#             */
-/*   Updated: 2022/10/19 03:33:09 by ymirna           ###   ########.fr       */
+/*   Updated: 2022/10/23 06:15:00 by ymirna           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,9 +41,8 @@ int	main(int ac, char	**av)
 
 int	main_loop(t_minirt	*data)
 {
-	init_rt(&data);
+	init_rt(data);
 	// pseudoParser(&data);
-	
 	(void) data;
 	exit(0);
 	

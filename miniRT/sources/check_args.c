@@ -6,7 +6,7 @@
 /*   By: ymirna <ymirna@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 14:53:56 by ymirna            #+#    #+#             */
-/*   Updated: 2022/10/19 05:50:35 by ymirna           ###   ########.fr       */
+/*   Updated: 2022/10/23 06:14:23 by ymirna           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 
 static int	check_info(t_minirt	*info, char	*str)
 {
-	if (ft_strlen(str) == 1 && str[0] == '\n')
+	printf("//check_info, str =|%s|\n", str);
+	if (ft_strlen(str) == 1)
 		return (0);
 	if (str[0] == 'A')
 		fill_ambient(info, str);
@@ -41,15 +42,19 @@ static int	read_info(t_minirt	*info, int fd)
 	str = NULL;
 	while (1)
 	{
-		ret = get_next_line(str, fd);
-		if (ret)
+		ret = get_next_line(&str, fd);
+		if (ret == 1)
+			continue ;
+		else if (ret == 2)
+			break ;
+		else if (ret == 4)
 			return (ret);
 		if (!str)
 			break ;
 		ret = check_info(info, str);
-		free(str);
-		if (info->str_arr)
+		if (info->str_arr && ft_strlen(str) != 1)
 			free_str_arr(info->str_arr);
+		free(str);
 		if (ret)
 		{
 			// free_info(info);
@@ -72,7 +77,7 @@ static void	check_to_null(t_minirt	*info)
 
 static void	check_min_max(t_minirt	*info, int	*ret)
 {
-	if (info->check.l_a != 1 || info->check.l_p > 1 || info->check.cam != 1)
+	if (info->check.l_a != 1 || info->check.l_p < 1 || info->check.cam != 1)
 		*ret = 4;
 }
 

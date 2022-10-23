@@ -22,7 +22,10 @@ float	ft_atof(char	*str)
 	sign = 1;
 	i = 0;
 	if (str[i] == '-')
+	{
 		sign = -1;
+		i++;
+	}
 	val = 0.0;
 	while (ft_isdigit(str[i]))
 	{
@@ -36,6 +39,7 @@ float	ft_atof(char	*str)
 	{
 		val = 10.0 * val + (str[i] - '0');
 		power = 10 * power;
+		i++;
 	}
 	return (sign * val / power);
 }

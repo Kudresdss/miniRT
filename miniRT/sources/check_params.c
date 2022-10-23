@@ -6,7 +6,7 @@
 /*   By: ymirna <ymirna@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 07:56:13 by ymirna            #+#    #+#             */
-/*   Updated: 2022/10/21 06:53:18 by ymirna           ###   ########.fr       */
+/*   Updated: 2022/10/22 04:29:52 by ymirna           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,8 @@ int	check_info_x(char	**arr, int x)
 	i = 0;
 	while (arr[i])
 		i++;
-	if ((i == 1 && (x == 0 || x == 2)) || (i == 2 && (x == 1 || x == 3 || x == 4)) || (i == 4 && x == 5))
+	printf("//check_info_x, i = %d, x = %d\n", i, x);
+	if ((i == 2 && (x == 0 || x == 2)) || (i == 3 && (x == 1 || x == 3 || x == 4)) || (i == 5 && x == 5))
 	{
 		i = 0;
 		while (arr[i])
@@ -55,6 +56,7 @@ int	check_info_x(char	**arr, int x)
 				return (4);
 			i++;
 		}
+		printf("//check_info_x - success!\n");
 		return (0);
 	}
 	return (4);

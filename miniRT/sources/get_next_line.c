@@ -6,7 +6,7 @@
 /*   By: ymirna <ymirna@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/02 08:21:54 by ymirna            #+#    #+#             */
-/*   Updated: 2022/10/21 07:11:43 by ymirna           ###   ########.fr       */
+/*   Updated: 2022/10/23 06:13:11 by ymirna           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ char	*ft_work(char	*buf, char **str1, char	*end, t_gnl	*st)
 	return (end);
 }
 
-int	get_next_line(char	*ret, int	fd)
+int	get_next_line(char	**ret, int	fd)
 {
 	t_gnl		stc;
 	char		buf[2];
@@ -93,6 +93,14 @@ int	get_next_line(char	*ret, int	fd)
 		end = stc.str;
 	}
 	end = ft_work(buf, &str1, end, &stc);
-	ret = str1;
+	if (ft_strlen(str1) == 1)
+	{
+		free(str1);
+		return (1);
+	}
+	else if (!str1 || ft_strlen(str1) == 0)
+		return (2);
+	else
+		*ret = ft_strtrim(str1, "\n");
 	return (0);
 }

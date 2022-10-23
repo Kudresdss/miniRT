@@ -6,7 +6,7 @@
 /*   By: ymirna <ymirna@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 23:29:22 by ymirna            #+#    #+#             */
-/*   Updated: 2022/10/21 07:10:32 by ymirna           ###   ########.fr       */
+/*   Updated: 2022/10/23 05:42:11 by ymirna           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ unsigned int	fill_rgb(t_minirt	*info, char	*str)
 	i = 0;
 	while (str_arr[i])
 		i++;
-	if (i > 2)
+	if (i != 3)
 	{
 		free_str_arr(str_arr);
 		info->info_error = 4;
@@ -62,6 +62,8 @@ unsigned int	fill_rgb(t_minirt	*info, char	*str)
 	color_arr[1] = (int)ft_atof(str_arr[1]);
 	color_arr[2] = (int)ft_atof(str_arr[2]);
 	return (create_trgb(color_arr[0], color_arr[1], color_arr[2]));
+
+	// ДОБАВИТЬ ОБЛАСТЬ ЗНАЧЕНИЙ ДЛЯ ЦВЕТА
 }
 
 void	fill_coord(t_minirt	*info, t_coords	*coord, char	*str, int norm)
@@ -91,7 +93,7 @@ void	fill_coord(t_minirt	*info, t_coords	*coord, char	*str, int norm)
 		}
 		i++;
 	}
-	if (i > 2)
+	if (i != 3)
 	{
 		free_str_arr(str_arr);
 		info->info_error = 4;
@@ -115,7 +117,6 @@ void	fill_cylinder(t_minirt	*info, char	*str)
 	t_list		*cyl;
 	char		**str_arr;
 
-	info->check.cyl++;
 	if (if_char(info, str[2], ' '))
 		return ;
 	str_arr = ft_split(str + 2, ' ');
@@ -132,4 +133,6 @@ void	fill_cylinder(t_minirt	*info, char	*str)
 	cyl_ptr->radius = fill_float(info, str_arr[2], 3) / 2;
 	cyl_ptr->height = fill_float(info, str_arr[3], 3);
 	cyl_ptr->color = fill_rgb(info, str_arr[4]);
+	info->check.cyl++;
+	printf("fill_cylinder, coord = %f|%f|%f, vector = %f|%f|%f, radius = %f, height = %f, color = %u\n", cyl_ptr->center.x, cyl_ptr->center.y, cyl_ptr->center.z, cyl_ptr->normal.x, cyl_ptr->normal.y, cyl_ptr->normal.z, cyl_ptr->radius, cyl_ptr->height, cyl_ptr->color);
 }
