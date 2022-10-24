@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minirt.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ymirna <ymirna@student.21-school.ru>       +#+  +:+       +#+        */
+/*   By: cbridget <cbridget@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/29 17:27:12 by cbridget          #+#    #+#             */
-/*   Updated: 2022/10/24 05:01:45 by ymirna           ###   ########.fr       */
+/*   Updated: 2022/10/24 17:12:32 by cbridget         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,19 +15,19 @@
 
 # define HIGHT 800
 # define WIDTH 1300
-# define ESC 65307
-# define A 97
-# define D 100
-# define S 115
-# define W 119
-# define ARROW_UP 65362
-# define ARROW_DOWN 65364
-# define Q 113
-# define E 101
-# define Z 122
-# define X 120
-# define C 99
-# define V 118
+# define ESC 53
+# define A 0
+# define D 2
+# define S 1
+# define W 13
+# define ARROW_UP 126
+# define ARROW_DOWN 125
+# define Q 12
+# define E 14
+# define Z 6
+# define X 7
+# define C 8
+# define V 9
 
 # define SPECULAR 200
 # define DEPTH 5
@@ -42,17 +42,11 @@
 
 # include "structs.h"
 # include "transform.h"
-# include "../mlx/mlx.h"
-# include "../headers/get_next_line.h"
-// # include <mlx.h>
+# include "get_next_line.h"
+# include <mlx.h>
 # include <stdio.h>
 # include <math.h>
-# include <unistd.h>
-# include <stdlib.h>
-# include <string.h>
 # include <fcntl.h>
-# include <sys/types.h>
-# include <sys/stat.h>
 
 void			init_rt(t_minirt *data);
 void			free_info(t_minirt	*info);

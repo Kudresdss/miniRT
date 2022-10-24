@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fill_info_2.c                                      :+:      :+:    :+:   */
+/*   fill_info_2_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ymirna <ymirna@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 23:29:22 by ymirna            #+#    #+#             */
-/*   Updated: 2022/10/24 19:12:48 by ymirna           ###   ########.fr       */
+/*   Updated: 2022/10/24 19:14:34 by ymirna           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ float	fill_float(t_minirt	*info, char	*str, int type)
 	float	val;
 
 	if (info->info_error)
-		return (0.0);
+		return (0);
 	if (char_value(str, '.', 1, 1) || correct_chars(str, 1))
 	{
 		info->info_error = 4;
@@ -111,6 +111,7 @@ void	fill_cylinder(t_minirt	*info, char	*str)
 	cyl_ptr->radius = fill_float(info, str_arr[2], 3) / 2;
 	cyl_ptr->height = fill_float(info, str_arr[3], 3);
 	cyl_ptr->color = fill_rgb(info, str_arr[4]);
+	cyl_ptr->reflect = fill_float(info, str_arr[5], 1);
 	info->check.cyl++;
-	printf("fill_cylinder, coord = %f|%f|%f, vector = %f|%f|%f, radius = %f, height = %f, color = %u\n", cyl_ptr->center.x, cyl_ptr->center.y, cyl_ptr->center.z, cyl_ptr->normal.x, cyl_ptr->normal.y, cyl_ptr->normal.z, cyl_ptr->radius, cyl_ptr->height, cyl_ptr->color);
+	printf("fill_cylinder_bonus, coord = %f|%f|%f, vector = %f|%f|%f, radius = %f, height = %f, color = %u, reflect = %f\n", cyl_ptr->center.x, cyl_ptr->center.y, cyl_ptr->center.z, cyl_ptr->normal.x, cyl_ptr->normal.y, cyl_ptr->normal.z, cyl_ptr->radius, cyl_ptr->height, cyl_ptr->color, cyl_ptr->reflect);
 }

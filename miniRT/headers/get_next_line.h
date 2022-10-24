@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ymirna <ymirna@student.21-school.ru>       +#+  +:+       +#+        */
+/*   By: ymirna <ymirna@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/02 08:22:56 by ymirna            #+#    #+#             */
-/*   Updated: 2022/10/21 07:37:44 by ymirna           ###   ########.fr       */
+/*   Updated: 2022/10/24 17:08:06 by ymirna           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,6 @@ typedef struct s_gnl
 int		get_next_line(char	**ret, int	fd);
 char	*ft_sub(char *s, unsigned int start, size_t	len, int	x);
 char	*ft_join(char *s1, char *s2, int	x);
+void	ft_trim(char	**ret, char	*str1);
 
 #endif

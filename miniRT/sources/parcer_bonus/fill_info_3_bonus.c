@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fill_info_3.c                                      :+:      :+:    :+:   */
+/*   fill_info_3_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ymirna <ymirna@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 01:55:05 by ymirna            #+#    #+#             */
-/*   Updated: 2022/10/24 19:13:14 by ymirna           ###   ########.fr       */
+/*   Updated: 2022/10/24 19:14:42 by ymirna           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void	fill_coord(t_minirt	*info, t_coords	*coord, char	*str, int norm)
 
 	if (info->info_error)
 		return ;
-	if (char_value(str, '.', 3, 1) || char_value(str, ',', 2, 0) || correct_chars(str, 0))
+	if (char_value(str, '.', 3, 1) || char_value(str, ',', 2, 0))
 	{
 		info->info_error = 4;
 		return ;

@@ -3,18 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   structs.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ymirna <ymirna@student.21-school.ru>       +#+  +:+       +#+        */
+/*   By: cbridget <cbridget@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/21 18:14:23 by cbridget          #+#    #+#             */
-/*   Updated: 2022/10/24 04:57:03 by ymirna           ###   ########.fr       */
+/*   Updated: 2022/10/24 17:09:08 by cbridget         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef STRUCTS_H
 # define STRUCTS_H
 
-# include "../libft/includes/libft.h"
-// # include "libft.h"
+# include "libft.h"
 
 typedef struct s_mlx
 {
