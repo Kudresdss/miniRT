@@ -6,7 +6,7 @@
 /*   By: cbridget <cbridget@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 13:05:59 by cbridget          #+#    #+#             */
-/*   Updated: 2021/10/06 12:54:20 by cbridget         ###   ########.fr       */
+/*   Updated: 2022/10/24 14:24:20 by cbridget         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,13 @@ size_t	ft_strlen(const char *s)
 	size_t	res;
 
 	res = 0;
-	while (*s)
+	if (s)
 	{
-		s ++;
-		res ++;
+		while (*s)
+		{
+			s ++;
+			res ++;
+		}
 	}
 	return (res);
 }
