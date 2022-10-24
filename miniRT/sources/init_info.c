@@ -6,7 +6,7 @@
 /*   By: ymirna <ymirna@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 05:21:36 by ymirna            #+#    #+#             */
-/*   Updated: 2022/10/23 05:44:50 by ymirna           ###   ########.fr       */
+/*   Updated: 2022/10/23 23:39:14 by ymirna           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	init_point(t_minirt	*info, t_list	**list)
 	l_p = malloc(sizeof(t_light_point) * 1);
 	if (!l_p)
 	{
-		info->info_error = 5;
+		info->info_error = 6;
 		return (1);
 	}
 	if (!info->check.l_p)
@@ -39,7 +39,7 @@ int	init_sphere(t_minirt	*info, t_list	**list)
 	sph = malloc(sizeof(t_sphere) * 1);
 	if (!sph)
 	{
-		info->info_error = 5;
+		info->info_error = 6;
 		return (1);
 	}
 	if (!info->check.sph)
@@ -59,7 +59,7 @@ int	init_plane(t_minirt	*info, t_list	**list)
 	pln = malloc(sizeof(t_plane) * 1);
 	if (!pln)
 	{
-		info->info_error = 5;
+		info->info_error = 6;
 		return (1);
 	}
 	if (!info->check.pln)
@@ -79,7 +79,7 @@ int	init_cylinder(t_minirt	*info, t_list	**list)
 	cyl = malloc(sizeof(t_cylinder) * 1);
 	if (!cyl)
 	{
-		info->info_error = 5;
+		info->info_error = 6;
 		return (1);
 	}
 	if (!info->check.cyl)
@@ -92,10 +92,6 @@ int	init_cylinder(t_minirt	*info, t_list	**list)
 	return (0);
 }
 
-
-
-
-
 unsigned int	create_trgb(unsigned char r, unsigned char g, unsigned char b)
 {
 	unsigned char	t;
@@ -103,4 +99,3 @@ unsigned int	create_trgb(unsigned char r, unsigned char g, unsigned char b)
 	t = 0;
 	return (*(unsigned int *)(unsigned char [4]){b, g, r, t});
 }
-

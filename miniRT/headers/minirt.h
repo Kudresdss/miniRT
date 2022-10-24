@@ -6,7 +6,7 @@
 /*   By: ymirna <ymirna@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/29 17:27:12 by cbridget          #+#    #+#             */
-/*   Updated: 2022/10/21 07:04:16 by ymirna           ###   ########.fr       */
+/*   Updated: 2022/10/24 02:39:37 by ymirna           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,10 @@
 # define PLANE 102
 # define CYLINDER 103
 
-# include "../libft/libft.h"
-# include "../headers/get_next_line.h"
+// # include "../libft/libft.h"
 // # include "libft.h"
+# include "../libft/includes/libft.h"
+# include "../headers/get_next_line.h"
 # include <mlx.h>
 # include <math.h>
 # include <stdio.h>
@@ -146,6 +147,7 @@ typedef struct s_minirt
 }				t_minirt;
 
 void			init_rt(t_minirt *data);
+void			free_info(t_minirt	*info);
 
 int				check_scene(t_minirt	*info, char	*scene);
 int				ft_strn_ncmp(char	*s1, char	*s2, size_t start, size_t n);

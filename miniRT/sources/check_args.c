@@ -6,7 +6,7 @@
 /*   By: ymirna <ymirna@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 14:53:56 by ymirna            #+#    #+#             */
-/*   Updated: 2022/10/23 06:14:23 by ymirna           ###   ########.fr       */
+/*   Updated: 2022/10/24 00:48:53 by ymirna           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,21 @@
 
 static int	check_info(t_minirt	*info, char	*str)
 {
-	printf("//check_info, str =|%s|\n", str);
-	if (ft_strlen(str) == 1)
-		return (0);
-	if (str[0] == 'A')
+	printf("//check_info, error = %d str =|%s|\n", info->info_error, str);
+	if (!ft_strncmp(str, "A ", 2) && !info->info_error)
 		fill_ambient(info, str);
-	else if (str[0] == 'C' && !info->info_error)
+	else if (!ft_strncmp(str, "C ", 2) && !info->info_error)
 		fill_camera(info, str);
-	else if (str[0] == 'L' && !info->info_error)
+	else if (!ft_strncmp(str, "L ", 2) && !info->info_error)
 		fill_light(info, str);
-	else if (str[0] == 's' && str[1] == 'p' && !info->info_error)
+	else if (!ft_strncmp(str, "sp ", 3) && !info->info_error)
 		fill_sphere(info, str);
-	else if (str[0] == 'p' && str[1] == 'l' && !info->info_error)
+	else if (!ft_strncmp(str, "pl ", 3) && !info->info_error)
 		fill_plane(info, str);
-	else if (str[0] == 'c' && str[1] == 'y' && !info->info_error)
+	else if (!ft_strncmp(str, "cy ", 3) && !info->info_error)
 		fill_cylinder(info, str);
 	else
-		return (4);
+		return (5);
 	return (info->info_error);
 }
 
@@ -52,14 +50,11 @@ static int	read_info(t_minirt	*info, int fd)
 		if (!str)
 			break ;
 		ret = check_info(info, str);
-		if (info->str_arr && ft_strlen(str) != 1)
+		if (info->str_arr && ft_strlen(str) != 1 && ret != 5)
 			free_str_arr(info->str_arr);
 		free(str);
 		if (ret)
-		{
-			// free_info(info);
 			return (ret);
-		}
 		info->info_error = 0;
 	}
 	return (0);
@@ -73,6 +68,7 @@ static void	check_to_null(t_minirt	*info)
 	info->check.sph = 0;
 	info->check.pln = 0;
 	info->check.cyl = 0;
+	info->info_error = 0;
 }
 
 static void	check_min_max(t_minirt	*info, int	*ret)
@@ -89,7 +85,7 @@ int	check_scene(t_minirt	*info, char	*scene)
 	check_to_null(info);
 	if (ft_strn_ncmp(scene, ".rt", ft_strlen(scene) - 3, ft_strlen(scene)))
 	{
-		printf("Invalid argument:\nwrong filename extension\n");
+		printf("Invalid argument: wrong filename extension\n");
 		return (2);
 	}
 	fd = open(scene, O_RDONLY);
@@ -101,5 +97,6 @@ int	check_scene(t_minirt	*info, char	*scene)
 	ret = read_info(info, fd);
 	if (!ret)
 		check_min_max(info, &ret);
+	close(fd);
 	return (ret);
 }

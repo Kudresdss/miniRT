@@ -6,7 +6,7 @@
 /*   By: ymirna <ymirna@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 23:29:22 by ymirna            #+#    #+#             */
-/*   Updated: 2022/10/23 05:42:11 by ymirna           ###   ########.fr       */
+/*   Updated: 2022/10/24 01:57:24 by ymirna           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,83 +32,58 @@ float	fill_float(t_minirt	*info, char	*str, int type)
 	return (0.0);
 }
 
-unsigned int	fill_rgb(t_minirt	*info, char	*str)
-{
-	unsigned char	color_arr[3];
-	char			**str_arr;
-	int				i;
-
-	if (char_value(str, ',', 2, 0) || correct_chars(str, 2))
-	{
-		info->info_error = 4;
-		return (0);
-	}
-	str_arr = ft_split(str, ',');
-	if (!str_arr)
-	{
-		info->info_error = 5;
-		return (0);
-	}
-	i = 0;
-	while (str_arr[i])
-		i++;
-	if (i != 3)
-	{
-		free_str_arr(str_arr);
-		info->info_error = 4;
-		return (0);
-	}
-	color_arr[0] = (int)ft_atof(str_arr[0]);
-	color_arr[1] = (int)ft_atof(str_arr[1]);
-	color_arr[2] = (int)ft_atof(str_arr[2]);
-	return (create_trgb(color_arr[0], color_arr[1], color_arr[2]));
-
-	// ДОБАВИТЬ ОБЛАСТЬ ЗНАЧЕНИЙ ДЛЯ ЦВЕТА
-}
-
-void	fill_coord(t_minirt	*info, t_coords	*coord, char	*str, int norm)
+static char	**fill_rgb_split(t_minirt	*info, char	*str)
 {
 	char	**str_arr;
 	int		i;
-
-	if (char_value(str, '.', 3, 1) || char_value(str, ',', 2, 0))
+	
+	if (char_value(str, ',', 2, 0) || correct_chars(str, 2))
 	{
 		info->info_error = 4;
-		return ;
+		return (NULL);
 	}
 	str_arr = ft_split(str, ',');
 	if (!str_arr)
 	{
-		info->info_error = 5;
-		return ;
+		info->info_error = 6;
+		return (NULL);
 	}
 	i = 0;
 	while (str_arr[i])
-	{
-		if (char_value(str_arr[i], '.', 1, 1) || char_value(str_arr[i], '-', 1, 1))
-		{
-			free_str_arr(str_arr);
-			info->info_error = 4;
-			return ;
-		}
 		i++;
-	}
 	if (i != 3)
 	{
 		free_str_arr(str_arr);
 		info->info_error = 4;
-		return ;
+		return (NULL);
 	}
-	coord->x = ft_atof(str_arr[0]);
-	coord->y = ft_atof(str_arr[1]);
-	coord->z = ft_atof(str_arr[2]);
-	if (norm)
+	return (str_arr);
+}
+
+unsigned int	fill_rgb(t_minirt	*info, char	*str)
+{
+	unsigned char	color_arr[3];
+	float			check_arr[3];
+	char			**str_arr;
+	int				i;
+
+	str_arr = fill_rgb_split(info, str);
+	if (info->info_error)
+		return (0);
+	i = 0;
+	while (i < 3)
 	{
-		if ((coord->x <= -1.0 && 1.0 <= coord->x) || (coord->y <= -1.0 && 1.0 <= coord->y) || (coord->z <= -1.0 && 1.0 <= coord->z))
+		check_arr[i] = ft_atof(str_arr[i]);
+		if (0 <= check_arr[i] && check_arr[i] <= 255)
+			color_arr[i] = (int)check_arr[i];
+		else
+		{
 			info->info_error = 4;
+			return (0);
+		}
+		i++;
 	}
-	free_str_arr(str_arr);
-	// ЕСТЬ ЛИ ДОПУСТИМАЯ ОБЛАСТЬ ЗНАЧЕНИЙ ДЛЯ ОБЫЧНЫХ КООРДИНАТ?
+	return (create_trgb(color_arr[0], color_arr[1], color_arr[2]));
 }
 
 void	fill_cylinder(t_minirt	*info, char	*str)

@@ -6,7 +6,7 @@
 /*   By: ymirna <ymirna@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 15:03:56 by ymirna            #+#    #+#             */
-/*   Updated: 2022/10/22 03:29:44 by ymirna           ###   ########.fr       */
+/*   Updated: 2022/10/23 21:02:27 by ymirna           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,8 +53,8 @@ int	if_str_arr(t_minirt	*info, char	**arr, int x)
 {
 	if (!arr || !arr[0])
 	{
-		info->info_error = 5;
-		return (5);
+		info->info_error = 6;
+		return (6);
 	}
 	info->str_arr = arr;
 	return (check_info_x(arr, x));

@@ -12,10 +12,23 @@
 
 #include "minirt.h"
 
+static float	ft_atof_2(char	*str, float val, int sign, int i)
+{
+	float	power;
+
+	power = 1.0;
+	while (ft_isdigit(str[i]))
+	{
+		val = 10.0 * val + (str[i] - '0');
+		power = 10 * power;
+		i++;
+	}
+	return (sign * val / power);
+}
+
 float	ft_atof(char	*str)
 {
 	float	val;
-	float	power;
 	int		sign;
 	int		i;
 
@@ -34,14 +47,8 @@ float	ft_atof(char	*str)
 	}
 	if (str[i] == '.')
 		i++;
-	power = 1.0;
-	while (ft_isdigit(str[i]))
-	{
-		val = 10.0 * val + (str[i] - '0');
-		power = 10 * power;
-		i++;
-	}
-	return (sign * val / power);
+	return (ft_atof_2(str, val, sign, i));
+	
 }
 
 int	coord_valid(char	*str)

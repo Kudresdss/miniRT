@@ -6,14 +6,14 @@
 /*   By: ymirna <ymirna@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/02 08:21:54 by ymirna            #+#    #+#             */
-/*   Updated: 2022/10/23 06:13:11 by ymirna           ###   ########.fr       */
+/*   Updated: 2022/10/24 02:08:38 by ymirna           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 #include "minirt.h"
 
-int	ft_check(char	*buf, t_gnl	*st)
+static int	ft_check(char	*buf, t_gnl	*st)
 {
 	st->i = 0;
 	while (buf[st->i])
@@ -30,7 +30,7 @@ int	ft_check(char	*buf, t_gnl	*st)
 	return (0);
 }
 
-char	*ft_chop(char	*str1, char	*end, t_gnl	*st)
+static char	*ft_chop(char	*str1, char	*end, t_gnl	*st)
 {
 	int		x;
 
@@ -53,7 +53,7 @@ char	*ft_chop(char	*str1, char	*end, t_gnl	*st)
 	return (str1);
 }
 
-char	*ft_work(char	*buf, char **str1, char	*end, t_gnl	*st)
+static char	*ft_work(char	*buf, char **str1, char	*end, t_gnl	*st)
 {
 	while (st->chr && st->line)
 	{
@@ -74,6 +74,13 @@ char	*ft_work(char	*buf, char **str1, char	*end, t_gnl	*st)
 	return (end);
 }
 
+static void fill_gnl(t_gnl	*stc, int fd)
+{
+	stc->chr = 1;
+	stc->line = 1;
+	stc->fd = fd;
+}
+
 int	get_next_line(char	**ret, int	fd)
 {
 	t_gnl		stc;
@@ -84,9 +91,7 @@ int	get_next_line(char	**ret, int	fd)
 	if (read(fd, NULL, 0) < 0)
 		return (4);
 	str1 = NULL;
-	stc.chr = 1;
-	stc.line = 1;
-	stc.fd = fd;
+	fill_gnl(&stc, fd);
 	if (end)
 	{
 		str1 = ft_chop(str1, end, &stc);

@@ -6,7 +6,7 @@
 /*   By: ymirna <ymirna@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/12 21:24:27 by ymirna            #+#    #+#             */
-/*   Updated: 2022/10/23 03:46:25 by ymirna           ###   ########.fr       */
+/*   Updated: 2022/10/24 02:51:06 by ymirna           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,15 @@ void	free_str_arr(char	**arr)
 	free(arr);
 }
 
+// void	delete_content(void	*cont)
+// {
+// 	free(cont);
+// }
+
 // void	free_info(t_minirt	*info)
 // {
-// 	// free(info->light_p);
-// 	// free(info->scene.planes);
-// 	// free(info->scene.spheres);
+// 	ft_lstclear(&info->light_p, free);
+// 	ft_lstclear(&info->scene.spheres, free);
+// 	ft_lstclear(&info->scene.planes, free);
+// 	ft_lstclear(&info->scene.cylinders, free);
 // }
