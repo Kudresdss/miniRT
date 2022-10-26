@@ -6,7 +6,7 @@
 /*   By: ymirna <ymirna@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 23:29:22 by ymirna            #+#    #+#             */
-/*   Updated: 2022/10/24 19:14:34 by ymirna           ###   ########.fr       */
+/*   Updated: 2022/10/26 19:54:15 by ymirna           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ static char	**fill_rgb_split(t_minirt	*info, char	*str)
 {
 	char	**str_arr;
 	int		i;
-	
+
 	if (char_value(str, ',', 2, 0) || correct_chars(str, 2))
 	{
 		info->info_error = 4;
@@ -79,13 +79,13 @@ unsigned int	fill_rgb(t_minirt	*info, char	*str)
 		check_arr[i] = ft_atof(str_arr[i]);
 		if (check_arr[i] < 0 || 255 < check_arr[i])
 		{
+			free_str_arr(str_arr);
 			info->info_error = 4;
 			return (0);
 		}
 		i++;
 	}
 	free_str_arr(str_arr);
-	printf("\ncolor = %f|%f|%f\n\n", check_arr[0], check_arr[1], check_arr[2]);
 	return (create_trgb(check_arr[0], check_arr[1], check_arr[2]));
 }
 
@@ -105,7 +105,7 @@ void	fill_cylinder(t_minirt	*info, char	*str)
 		return ;
 	while (cyl->next != NULL)
 		cyl = cyl->next;
-	cyl_ptr = (t_cylinder	*)cyl->content;
+	cyl_ptr = (t_cylinder *)cyl->content;
 	fill_coord(info, &cyl_ptr->center, str_arr[0], 0);
 	fill_coord(info, &cyl_ptr->normal, str_arr[1], 1);
 	cyl_ptr->radius = fill_float(info, str_arr[2], 3) / 2;
@@ -113,5 +113,4 @@ void	fill_cylinder(t_minirt	*info, char	*str)
 	cyl_ptr->color = fill_rgb(info, str_arr[4]);
 	cyl_ptr->reflect = fill_float(info, str_arr[5], 1);
 	info->check.cyl++;
-	printf("fill_cylinder_bonus, coord = %f|%f|%f, vector = %f|%f|%f, radius = %f, height = %f, color = %u, reflect = %f\n", cyl_ptr->center.x, cyl_ptr->center.y, cyl_ptr->center.z, cyl_ptr->normal.x, cyl_ptr->normal.y, cyl_ptr->normal.z, cyl_ptr->radius, cyl_ptr->height, cyl_ptr->color, cyl_ptr->reflect);
 }

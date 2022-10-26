@@ -6,7 +6,7 @@
 #    By: cbridget <cbridget@student.21-school.ru    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/29 17:19:04 by cbridget          #+#    #+#              #
-#    Updated: 2022/10/24 17:04:49 by cbridget         ###   ########.fr        #
+#    Updated: 2022/10/26 16:10:45 by cbridget         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ HEAD = headers/minirt.h headers/get_next_line.h headers/structs.h headers/transf
 SRC = main.c utilities/utilities.c utilities/hooks.c utilities/init.c raytracer/minirt.c \
 raytracer/raytracer.c utilities/vectors.c raytracer/intersect_sphere.c \
 raytracer/compute_lighting.c raytracer/intersect_plane.c raytracer/intersect_cylinder.c \
-utilities/vectors_two.c utilities/utilities_two.c \
+utilities/vectors_two.c utilities/utilities_two.c  raytracer/intersect_lid.c\
 transform/transform.c transform/change_obj.c transform/ch_view.c transform/resize.c \
 
 SRC_PARCER = parcer/check_args.c parcer/check_params.c parcer/fill_info_1.c parcer/fill_info_2.c \

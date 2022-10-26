@@ -6,7 +6,7 @@
 /*   By: cbridget <cbridget@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/02 13:39:21 by cbridget          #+#    #+#             */
-/*   Updated: 2022/10/21 18:26:28 by cbridget         ###   ########.fr       */
+/*   Updated: 2022/10/26 16:12:02 by cbridget         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,12 @@ t_coords	get_surface_normal(t_minirt *data, t_ray *ray, t_coords *inter_p)
 		if (dot_vectors(&ray->dir, &norm) > EPS)
 			norm = multiplication_scalar(&norm, -1);
 	}
+	else if (data->asw.flag == LID)
+	{
+		norm = data->asw.norm_lid;
+		if (dot_vectors(&ray->dir, &norm) > EPS)
+			norm = multiplication_scalar(&norm, -1);
+	}
 	else
 		norm = get_cylinder_norm(data, ray, inter_p);
 	return (norm);
@@ -80,7 +86,7 @@ void	set_options(t_minirt *data, float *r, unsigned int *color)
 		*color = ((t_plane *)(data->asw.closest_shape->content))->color;
 		*r = ((t_plane *)(data->asw.closest_shape->content))->reflect;
 	}
-	else
+	else if (data->asw.flag == CYLINDER || data->asw.flag == LID)
 	{
 		*color = ((t_cylinder *)data->asw.closest_shape->content)->color;
 		*r = ((t_cylinder *)data->asw.closest_shape->content)->reflect;

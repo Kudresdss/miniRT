@@ -6,7 +6,7 @@
 /*   By: ymirna <ymirna@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/02 08:21:54 by ymirna            #+#    #+#             */
-/*   Updated: 2022/10/24 17:06:52 by ymirna           ###   ########.fr       */
+/*   Updated: 2022/10/26 17:21:37 by ymirna           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ static char	*ft_chop(char	*str1, char	*end, t_gnl	*st)
 		{
 			str1 = ft_sub(end, 0, st->i + 1, 0);
 			st->str = ft_sub(end, st->i + 1,
-				ft_strlen(end) - st->i, 1);
+					ft_strlen(end) - st->i, 1);
 		}
 		st->line = 0;
 	}
@@ -74,14 +74,14 @@ static char	*ft_work(char	*buf, char **str1, char	*end, t_gnl	*st)
 	return (end);
 }
 
-static void fill_gnl(t_gnl	*stc, int fd)
+static void	fill_gnl(t_gnl	*stc, int fd)
 {
 	stc->chr = 1;
 	stc->line = 1;
 	stc->fd = fd;
 }
 
-int	get_next_line(char	**ret, int	fd)
+int	get_next_line(char	**ret, int fd)
 {
 	t_gnl		stc;
 	char		buf[2];

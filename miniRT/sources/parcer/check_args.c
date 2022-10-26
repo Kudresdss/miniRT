@@ -6,7 +6,7 @@
 /*   By: ymirna <ymirna@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 14:53:56 by ymirna            #+#    #+#             */
-/*   Updated: 2022/10/24 17:49:15 by ymirna           ###   ########.fr       */
+/*   Updated: 2022/10/26 19:52:07 by ymirna           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 static int	check_info(t_minirt	*info, char	*str)
 {
-	printf("//check_info, error = %d str =|%s|\n", info->info_error, str);
 	if (!ft_strncmp(str, "A ", 2) && !info->info_error)
 		fill_ambient(info, str);
 	else if (!ft_strncmp(str, "C ", 2) && !info->info_error)
@@ -69,23 +68,21 @@ static void	check_to_null(t_minirt	*info)
 	info->check.pln = 0;
 	info->check.cyl = 0;
 	info->info_error = 0;
+	info->light_p = NULL;
+	info->scene.spheres = NULL;
+	info->scene.planes = NULL;
+	info->scene.cylinders = NULL;
 }
 
 static void	check_min_max(t_minirt	*info, int	*ret)
 {
 	if (info->check.l_a != 1 || info->check.l_p < 1 || info->check.cam != 1)
 		*ret = 4;
-	if (!info->check.sph)
-		info->scene.spheres = NULL;
-	if (!info->check.pln)
-		info->scene.planes = NULL;
-	if (!info->check.cyl)
-		info->scene.cylinders = NULL;
 }
 
 int	check_scene(t_minirt	*info, char	*scene)
 {
-	int ret;
+	int	ret;
 	int	fd;
 
 	check_to_null(info);

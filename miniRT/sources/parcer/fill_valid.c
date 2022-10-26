@@ -48,19 +48,19 @@ float	ft_atof(char	*str)
 	if (str[i] == '.')
 		i++;
 	return (ft_atof_2(str, val, sign, i));
-	
 }
 
 int	coord_valid(char	*str)
 {
-	int i;
+	int	i;
 	int	y;
 
 	i = 0;
 	y = 0;
 	while (str[i])
 	{
-		if (!(('0' <= str[i] && str[i] <= '9') || str[i] == '.' || str[i] == ','))
+		if (!(('0' <= str[i] && str[i] <= '9') || str[i] == '.'
+				|| str[i] == ','))
 			return (1);
 		if (str[i] == ',')
 			y++;

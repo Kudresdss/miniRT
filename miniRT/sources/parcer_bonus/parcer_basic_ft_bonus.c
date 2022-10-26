@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parcer_basic_ft.c                                  :+:      :+:    :+:   */
+/*   parcer_basic_ft_bonus.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ymirna <ymirna@student.21-school.ru>       +#+  +:+       +#+        */
+/*   By: ymirna <ymirna@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 15:03:56 by ymirna            #+#    #+#             */
-/*   Updated: 2022/10/23 21:02:27 by ymirna           ###   ########.fr       */
+/*   Updated: 2022/10/26 17:20:12 by ymirna           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 int	char_value(char	*str, char c, int x, int less)
 {
-	int i;
-	int y;
-	
+	int	i;
+	int	y;
+
 	i = 0;
 	y = 0;
 	while (str[i])
@@ -39,7 +39,7 @@ int	is_char(char a, char b)
 	return (0);
 }
 
-int	if_char(t_minirt	*info, char	a, char b)
+int	if_char(t_minirt	*info, char a, char b)
 {
 	if (a != b)
 	{

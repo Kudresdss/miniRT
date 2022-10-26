@@ -6,7 +6,7 @@
 /*   By: cbridget <cbridget@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/21 18:14:23 by cbridget          #+#    #+#             */
-/*   Updated: 2022/10/24 17:09:08 by cbridget         ###   ########.fr       */
+/*   Updated: 2022/10/26 16:00:13 by cbridget         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,6 +104,8 @@ typedef struct s_answer
 	float		closest_t;
 	t_list		*closest_shape;
 	char		flag;
+	t_coords	norm_lid;
+	float		t_min;
 }				t_answer;
 
 typedef struct s_check

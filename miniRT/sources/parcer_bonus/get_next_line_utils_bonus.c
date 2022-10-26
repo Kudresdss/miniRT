@@ -6,7 +6,7 @@
 /*   By: ymirna <ymirna@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/02 08:26:20 by ymirna            #+#    #+#             */
-/*   Updated: 2022/10/24 17:07:51 by ymirna           ###   ########.fr       */
+/*   Updated: 2022/10/26 17:20:45 by ymirna           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	ft_trim(char	**ret, char	*str1)
 	free(str1);
 }
 
-char	*ft_sub(char *s, unsigned int start, size_t	len, int	x)
+char	*ft_sub(char *s, unsigned int start, size_t	len, int x)
 {
 	char	*str;
 	size_t	i;
@@ -46,7 +46,7 @@ char	*ft_sub(char *s, unsigned int start, size_t	len, int	x)
 	return (str);
 }
 
-char	*ft_join(char *s1, char *s2, int	x)
+char	*ft_join(char *s1, char *s2, int x)
 {
 	size_t	i;
 	size_t	j;

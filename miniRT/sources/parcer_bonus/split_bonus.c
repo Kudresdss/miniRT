@@ -12,7 +12,7 @@
 
 #include "minirt.h"
 
-static size_t	ft_words(char const	*s, char	c)
+static size_t	ft_words(char const	*s, char c)
 {
 	size_t	i;
 	size_t	j;
@@ -75,7 +75,7 @@ static char	**ft_strprs(char	**sttr, char const	*s, char c, size_t	words)
 	return (sttr);
 }
 
-char	**ft_split(char const	*s, char	c)
+char	**ft_split(char const	*s, char c)
 {
 	char	**sttr;
 	size_t	words;
