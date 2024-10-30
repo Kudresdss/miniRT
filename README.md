@@ -1,14 +1,16 @@
-miniRT project for 42 cursus.
+miniRT project for 42cursus.
 
 Currently only works on MacOS and linux systems.
 
 This is a customizeable rendered CPU ray-traced scene written in C. It knows some basic shapes and surface properties, but not much.
 Its controls are a bit outdated, I'll rewrite it in C++ for Windows compilation someday.
 
-![image](https://github.com/user-attachments/assets/7e0068c3-1791-460e-ad12-be45ffc68c1b)
+It uses 42cursus graphics library MiniLibX for rendering.
 
-![image](https://github.com/user-attachments/assets/71b82e39-e6b9-4c24-9e66-cf87b1d7a68d)
+![image](https://github.com/user-attachments/assets/07f6f86b-957b-43dd-811d-b7164ac9c7ab)
 
-![image](https://github.com/user-attachments/assets/cabd3e6d-e4aa-47be-a725-2668cfd973b0)
+![image](https://github.com/user-attachments/assets/9ca4cfc2-dccb-4535-a7d1-647e38b778cb)
 
-![image](https://github.com/user-attachments/assets/7b92ea51-c819-459f-8e3d-2026bd9e2495)
+![image](https://github.com/user-attachments/assets/9056d3a4-3310-4d75-9f1a-bb8db5977752)
+
+![image](https://github.com/user-attachments/assets/1a97f5ac-b092-4b89-a564-2197cba75a00)
